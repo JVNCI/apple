@@ -21,4 +21,4 @@ fi
 echo $PRIVATE_KEY > privatekey.pem
 echo $SERVER > server.crt
 
-sudo docker run -p 3000:3000 -d --name $CONTAINER_NAME $IMAGE_NAME
+sudo docker run -p 8443:8443 -d --name $CONTAINER_NAME $IMAGE_NAME
