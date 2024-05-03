@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New item</title>
+  </head>
+  <body>
+    <h2>New item</h2>
+    <div id="form">
+      <label for="itemname">Name</label>
+      <input type="text" name="itemname" id="itemname" />
+      <label for="description">Description</label>
+      <input type="text" name="description" id="description" />
+      <button onclick="createArticle()">Add article</button>
+      <a href="index.html">Back to articles</a>
+    </div>
+  </body>
+
+  <script>
+    const itemname = document.getElementById("itemname");
+    const description = document.getElementById("description");
+
+    const url = "http://localhost:3000/items";
+
+    async function createArticle() {
+      const data = {
+        title: itemname.value,
+        body: description.value,
+      };
+
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      window.location = "index.html";
+    }
+  </script>
+</html>

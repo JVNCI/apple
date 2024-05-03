@@ -7,6 +7,7 @@
   </head>
   <body onload="loadData()">
     <h1>Exp HTML Client</h1>
+    <a href="new.html">New item</a>
     <div id="items"></div>
 
     <script>
@@ -15,19 +16,19 @@
         var response = await fetch(url, {
           headers: { Accept: "application/json" },
         });
-        console.log(await response.json());
-        // var data = await response.json();
-        // var itemsDiv = document.getElementById("items");
-        // for (let i = 0; i < data.length; i++) {
-        //   const item = data[i];
-        //   const html = `
-        //     <h3>${item.title}</h3>
-        //     <p>${item.body}</p>
-        //     <p>Published: ${item.published}<p>
-        //     <a href="single-article.html?id=${item.id}">Show article</a>
-        //     `;
-        //     itemsDiv.innerHTML += html;
-        // }
+        // console.log(await response.json());
+        var data = await response.json();
+        var itemsDiv = document.getElementById("items");
+        for (let i = 0; i < data.length; i++) {
+          const item = data[i];
+          const html = `
+            <h3>${item.title}</h3>
+            <p>${item.body}</p>
+            <p>Published: ${item.published}<p>
+            <a href="single-article.html?id=${item.id}">Show article</a>
+            `;
+          itemsDiv.innerHTML += html;
+        }
       }
     </script>
   </body>
