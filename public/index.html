@@ -12,7 +12,8 @@
 
     <script>
       async function loadData() {
-        var url = "http://172.31.31.135/:3000/items";
+        var url =
+          "http://ec2-13-60-11-38.eu-north-1.compute.amazonaws.com/:3000/items";
         var response = await fetch(url, {
           headers: { Accept: "application/json" },
         });
