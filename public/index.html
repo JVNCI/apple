@@ -5,7 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exp HTML client</title>
   </head>
-  <body>
+  <body onload="loadData()">
     <h1>Exp HTML Client</h1>
+    <div id="items"></div>
+
+    <script>
+      async function loadData() {
+        var url = "http://localhost:3000/items";
+        var response = await fetch(url, {
+          headers: { Accept: "application/json" },
+        });
+        console.log(await response.json());
+        // var data = await response.json();
+        // var itemsDiv = document.getElementById("items");
+        // for (let i = 0; i < data.length; i++) {
+        //   const item = data[i];
+        //   const html = `
+        //     <h3>${item.title}</h3>
+        //     <p>${item.body}</p>
+        //     <p>Published: ${item.published}<p>
+        //     <a href="single-article.html?id=${item.id}">Show article</a>
+        //     `;
+        //     itemsDiv.innerHTML += html;
+        // }
+      }
+    </script>
   </body>
 </html>
