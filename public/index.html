@@ -13,10 +13,10 @@
     <script>
       async function loadData() {
         var url = "http://13.60.11.38/:3000/items";
-        var response = await fetch(url, {
-          headers: { Accept: "application/json" },
-        });
-        console.log(response);
+        // var response = await fetch(url, {
+        //   headers: { Accept: "application/json" },
+        // });
+        // console.log(response);
         // console.log(await response.json());
         // var data = await response.json();
         // var itemsDiv = document.getElementById("items");
@@ -30,6 +30,20 @@
         //     `;
         //   itemsDiv.innerHTML += html;
         // }
+
+        const data = {
+          name: "item one",
+          description: "random description",
+        };
+
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(data),
+        });
       }
     </script>
   </body>
