@@ -21,8 +21,7 @@
     const itemname = document.getElementById("itemname");
     const description = document.getElementById("description");
 
-    const url = "http://localhost:3000/items";
-
+    var url = "http://13.60.11.38/:3000/items";
     async function createArticle() {
       const data = {
         title: itemname.value,
